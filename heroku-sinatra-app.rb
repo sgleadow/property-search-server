@@ -9,8 +9,11 @@ require 'rubygems'
 require 'bundler'
 Bundler.require
 
-get '/' do
-  "Congradulations!
-   You're running a Sinatra application on Heroku!"
+require 'erb'
+
+get '/search' do
+  @search = params[:q]
+  @show_suburb = @search && !@search.empty?
+  erb :properties
 end
 
