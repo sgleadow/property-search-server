@@ -1,15 +1,7 @@
-# You'll need to require these if you
-# want to develop while running with ruby.
-# The config/rackup.ru requires these as well
-# for it's own reasons.
-#
-# $ ruby heroku-sinatra-app.rb
-#
 require 'rubygems'
 require 'bundler'
-Bundler.require
-
 require 'erb'
+Bundler.require
 
 get '/search' do
   @search = params[:q]
