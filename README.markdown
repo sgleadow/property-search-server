@@ -1,30 +1,40 @@
-# Here is a sample/template sinatra application ready for deployment to [Heroku](http://heroku.com).
+Sample Property Search Server
+=============================
 
-**NOTE** This is for heroku.com and not herokugarden.com
+This is a small server written in Ruby using Sinatra and hosted on Heroku.
 
-* Create an acount in seconds at [Heroku](http://heroku.com/signup).
-* Install the gem `sudo gem install heroku`.
-* If you do not have an SSH key
-you'll need to [generate
-one](http://heroku.com/docs/index.html#_setting_up_ssh_public_keys)
-and [tell Heroku about
-it](http://heroku.com/docs/index.html#_manage_keys_on_heroku)
-* Clone this repo `git clone git://github.com/sinatra/heroku-sinatra-app [appname]`
-* `cd /path/to/project`
-* `heroku create [optional-app-name]` (You can rename your app with `heroku rename`)
-* `git push heroku master`
+It just serves up a static JSON file with some dummy properties to test the accompanying property-search-sample iPhone application.
 
-**NOTES**
+Server
+------
 
-The small amount of code is heavily commented. If you have questions
-or comments please use [the channels provided](http://www.sinatrarb.com/contributing.html) by the Sinatra community as
-we at Heroku are heavily involved in Sinatra.  Please use the Heroku [mailing list](http://groups.google.com/group/heroku) if you
-have non Sinatra questions.
+The server is deployed and available on Heroku.
 
-See [these guidelines](http://www.sinatrarb.com/contributing.html) for
-contributing or bugs.
+`http://rmit-property-search.heroku.com/search`
 
-Happy Development and Deploying!
+The server takes an optional query parameter, which doesn't actually do a search, it just returns whatever you searched for as the suburb of each property.
 
-Sincerely,
-The Heroku Team
+`http://rmit-property-search.heroku.com/search?q=hawthorn`
+
+Installation with RVM and Bundler
+---------------------------------
+
+If you're using RVM, it should automatically pick up the Ruby version and create a new gemset when you enter the directory on the command line.
+
+If bundler isn't installed:
+
+`gem install bundler`
+
+`bundle`
+
+Installation without RVM and Bundler
+------------------------------------
+
+Install Ruby and RubyGems if you haven't already. Navigate to the server project directory and:
+
+`gem install sinatra`
+
+Running the server
+------------------
+
+To run the server locally, just run `rackup` in the project directory, which should make the server available on `http://localhost:9292/search`
